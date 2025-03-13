@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Tabla Periódica de IA</title>
+    <style>
+        body {
+        
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-image: url(Iconos/test9.jpg);
+            margin: 0;
+            padding: 20px;
+        }
+        
+        h1 {
+            text-align: center;
+            color: #000000;
+            margin-bottom: 30px;
+        }
+        h1elaborado {
+          
+          top: 0;
+          left: 0;
+          width: 100%;
+           height: 13%;
+            text-align: center;
+            color: #000000;
+            margin-bottom: 30px;
+        }
+              
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .periodic-table {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+        
+        .watermark {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+           height: 13%;
+         background-image: url(Iconos/logoct.png);
+         background-repeat: no-repeat;
+          background-position: right;
+          background-size: 20%;
+          opacity: 0.20;
+          pointer-events: none;
+          z-index: -1;
+        }
+
+
+        
+        .element {
+            border-radius: 5px;
+            padding: 15px;
+            color: white;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            min-height: 100px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            cursor: pointer;
+            position: relative;
+        }
+        
+        .element:hover {
+            transform: scale(1.50);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+            z-index: 10;
+        }
+        
+        .element h3 {
+            margin: 0 0 5px 0;
+            font-size: 20px;
+            font-weight: bold;
+        }
+        
+        .element p {
+            margin: 0;
+            font-size: 15px;
+            opacity: 0.9;
+        }
+        
+        .element a {
+            color: white;
+            text-decoration: none;
+            display: block;
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 15px;
+            box-sizing: border-box;
+        }
+        
+        .programacion { background-color: #ff6c22; }
+        .diseno-web { background-color: #2196F3; }
+        .base-datos { background-color: #4CAF50; }
+        .seguridad { background-color: #F44336; }
+        .redes { background-color: #9C27B0; }
+        .diseno-grafico { background-color: #00BCD4; }
+        .desarrollo-web { background-color: #673AB7; }
+        .escritura { background-color: #3F51B5; }
+        .analisis-datos { background-color: #009688; }
+        .productividad { background-color: #FFC107; }
+        .audio-video { background-color: #795548; }
+        .educacion { background-color: #8BC34A; }
+        
+        .legend {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .legend-item {
+            display: flex;
+            align-items: center;
+            margin: 5px;
+        }
+        
+        .color-box {
+            width: 20px;
+            height: 20px;
+            margin-right: 8px;
+            border-radius: 3px;
+        }
+        
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.7);
+            z-index: 100;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .modal-content {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            max-width: 600px;
+            width: 80%;
+            position: relative;
+        }
+        
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 24px;
+            cursor: pointer;
+            color: #333333;
+        }
+        
+        #app-title {
+            margin-top: 0;
+            color: #333;
+        }
+        
+        #app-description {
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        #app-link {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        
+        #app-link:hover {
+            background-color: #388E3C;
+        }
+    </style>
+</head>
+<body>
+    <div class="watermark">
+    </div>
+
+    <div class="elaborado">
+        <h1elaborado>© 2025 INTRODUCCIÓN A LA COMPUTACIÓN SECCION: 157</h1elaborado>
+     
+    </div>
+
+    <div class="container">
+        <h1>Tabla Periódica de Aplicaciones de Inteligencia Artificial</h1>
+        
+        <div class="legend">
+            <div class="legend-item">
+                <div class="color-box programacion"></div>
+                <span>Programación</span>
+            </div>
+            <div class="legend-item">
+                <div class="color-box diseno-web"></div>
+                <span>Diseño Web</span>
+            </div>
+            <div class="legend-item">
+                <div class="color-box base-datos"></div>
+                <span>Base de Datos</span>
+            </div>
+            <div class="legend-item">
+                <div class="color-box seguridad"></div>
+                <span>Seguridad Informática</span>
+            </div>
+            <div class="legend-item">
+                <div class="color-box redes"></div>
+                <span>Redes</span>
+            </div>
+            <div class="legend-item">
+                <div class="color-box diseno-grafico"></div>
+                <span>Diseño Gráfico</span>
+            </div>
+            <div class="legend-item">
+                <div class="color-box desarrollo-web"></div>
+                <span>Desarrollo Web</span>
+            </div>
+            <div class="legend-item">
+                <div class="color-box escritura"></div>
+                <span>Escritura</span>
+            </div>
+            <div class="legend-item">
+                <div class="color-box analisis-datos"></div>
+                <span>Análisis de Datos</span>
+            </div>
+            <div class="legend-item">
+                <div class="color-box productividad"></div>
+                <span>Productividad</span>
+            </div>
+            <div class="legend-item">
+                <div class="color-box audio-video"></div>
+                <span>Audio y Video</span>
+            </div>
+            <div class="legend-item">
+                <div class="color-box educacion"></div>
+                <span>Educación</span>
+            </div>
+        </div>
+        
+        <div class="periodic-table">
+            <!-- Programación -->
+            <div class="element programacion" onclick="showModal('GitHub Copilot', 'Asistente de IA para programación que sugiere código y funciones completas directamente en tu editor de código. Ayuda a los programadores a escribir código. Está diseñada para ahorrar tiempo y agilizar el proceso de desarrollo de software.', 'https://github.com/features/copilot', 'programacion')">
+                <a href="javascript:void(0);">
+                    <img src="iconos/github.png" width="50" height="50"/>
+                    <h3>Gh</h3>
+                    <p>GitHub Copilot</p>
+                </a>
+            </div> 
+              <br>
+             <div> 
+             <br>
+              </div>
+              <br>
+              <div> 
+              <br>
+               </div>
+               <br>
+              <div> 
+              <br>
+               </div>
+               <br>
+              <div> 
+              <br>
+               </div>
+               <div> 
+                <br>
+                 </div>
+             
+             
+              
+    
+        
+
+            <div class="element programacion" onclick="showModal('Tabnine', 'Asistente de código impulsado por IA que anticipa lo que vas a escribir, completando líneas o bloques enteros. A diferencia de los autocompletados de código tradicionales, Tabnine utiliza modelos de aprendizaje profundo para entender el contexto de tu código, ofreciendo sugerencias precisas y relevantes que se alinean con tu estilo de programación.', 'https://www.tabnine.com/', 'programacion')">
+                <a href="javascript:void(0);">
+                    <img src="iconos/tabnine.png" width="50" height="50"/>
+                    <h3>Tn</h3>
+                    <p>Tabnine</p>
+                </a>
+            </div>
+            
+            <div class="element programacion" onclick="showModal('CodeWhisperer', 'Amazon CodeWhisperer, es un generador de código de uso general basado en el aprendizaje automático que te proporciona recomendaciones de código en tiempo real. A medida que escribes código, genera CodeWhisperer automáticamente sugerencias basadas en el código y los comentarios existentes.', 'https://aws.amazon.com/codewhisperer/', 'programacion')">
+                <a href="javascript:void(0);">
+                    <img src="iconos/codewhisperer.png" width="50" height="50"/>
+                    <h3>Cw</h3>
+                    <p>Code Whisperer</p>
+                </a>
+            </div>
+            
+            <div class="element programacion" onclick="showModal('Replit Ghostwriter', 'La herramienta Personal Replit Ghostwriter es una herramienta de IA que tiene como objetivo proporcionar a los usuarios una capacidad de generación de código automatizada. Utiliza específicamente la versión cuantificada de GGML 4 bit del modelo Replit-v2-CodeInstruct-3b, diseñada para generar fragmentos de código.', 'https://replit.com/ghostwriter', 'programacion')">
+                <a href="javascript:void(0);">
+                    <img src="iconos/replit.webp" width="50" height="50"/>
+                    <h3>Rg</h3>
+                    <p>Replit Ghostwriter</p>
+                </a>
+            </div>
+            
+
+            <div class="element programacion" onclick="showModal('CodeGeeX', 'Modelo multilingüe de generación de código con capacidades de conversación. El código geek es un código artificial formado por las letras y símbolos usados por los geek para describir su personalidad, sus intereses, su aspecto o algunas opiniones generales. El concepto de la base del código presupone que cualquier característica de un geek puede ser escrita de esta forma sintética.', 'https://codegeex.cn/', 'programacion')">
+                <a href="javascript:void(0);">
+                    <img src="iconos/codegeex.png" width="50" height="50"/>
+                    <h3>Cx</h3>
+                    <p>CodeGeeX</p>
+                </a>
+            </div>
+
+              <br>
+              <div> 
+             <br>
+             </div>
+             <br>
+             <div> 
+             <br>
+              </div>
+              <br>
+             <div> 
+             <br>
+              </div>
+            
+            <!-- Diseño Web -->
+            <div class="element diseno-web" onclick="showModal('Framer AI', 'Framer es una herramienta Nocode que te permite construir páginas web y landing pages sin necesidad de programar. Genera páginas web a partir de instrucciones de texto.', 'https://www.framer.com/ai', 'diseno-web')">
+                <a href="javascript:void(0);">
+                    <img src="iconos/framerai.png" width="50" height="50"/>
+                    <h3>Fr</h3>
+                    <p>Framer AI</p>
+                </a>
+            </div>
+            
+            <div class="element diseno-web" onclick="showModal('Galileo AI', 'Galileo AI es una plataforma de inteligencia artificial que utiliza algoritmos avanzados para analizar el contenido de un sitio web y generar automáticamente un diseño personalizado y atractivo. Esta tecnología permite ahorrar tiempo y dinero, eliminando la necesidad de contratar a un diseñador web. Genera diseños UI/UX a partir de descripciones textuales.', 'https://www.usegalileo.ai/', 'diseno-web')">
+                <a href="javascript:void(0);">
+                    <img src="iconos/galileo.webp" width="90" height="30"/>
+                    <h3>Ga</h3>
+                    <p>Galileo AI</p>
+                </a>
+            </div>
+            
+            <div class="element diseno-web" onclick="showModal('Uizard', 'Es una aplicación de diseño impulsada por IA que permite crear productos digitales, aplicaciones móviles, maquetas de sitios web y esquemas en cuestión de minutos. Convierte capturas de pantalla de aplicaciones o sitios web en maquetas editables en cuestión de segundos, todo gracias al poder de la IA. Toma inspiración de las aplicaciones más exitosas y ahorra horas de tiempo en diseño e iteración.', 'https://uizard.io/', 'diseno-web')">
+                <a href="javascript:void(0);">
+                    <img src="iconos/uizard.png" width="80" height="30"/>
+                    <h3>Ui</h3>
+                    <p>Uizard</p>
+                </a>
+            </div>
+            
+            <div class="element diseno-web" onclick="showModal('V0', 'Es un sistema generativo de interfaces de usuario impulsado por inteligencia artificial, desarrollado por Vercel Labs. Su principal atractivo radica en la capacidad de generar código React amigable y fácil de implementar, basado en descripciones de texto simples. Esto significa que incluso aquellos sin experiencia en codificación pueden diseñar interfaces de usuario de manera eficiente y efectiva.', 'https://v0.dev/', 'diseno-web')">
+                <a href="javascript:void(0);">
+                    <img src="iconos/vercel.png" width="50" height="50"/>
+                    <h3>Ve</h3>
+                    <p>V0 by Vercel</p>
+                </a>
+            </div>
+
+              
+            
+            <!-- Base de Datos -->
+            <div class="element base-datos" onclick="showModal('MindsDB', 'Plataforma que permite incorporar IA en bases de datos para predicciones. Es una tecnología open-source que permite crear, entrenar y desplegar modelos Machine Learning sobre diferentes base de datos, abstrayendo los modelos como AI Tables, además las predicciones estarán disponibles a través de queries SQL.', 'https://mindsdb.com/', 'base-datos')">
+                <a href="javascript:void(0);">
+                    <img src="iconos/mindsdb.png" width="50" height="50"/>
+                    <h3>Mi</h3>
+                    <p>MindsDB</p>
+                </a>
+            </div>
+            
+            <div class="element base-datos" onclick="showModal('AI2sql', 'AI2sql es una herramienta de inteligencia artificial que permite escribir consultas SQL sin necesidad de conocer SQL. Con AI2sql, tanto ingenieros como personas sin experiencia en SQL pueden crear consultas SQL eficientes y sin errores de manera rápida y sencilla. Convierte instrucciones de lenguaje natural en consultas SQL.', 'https://www.ai2sql.io/', 'base-datos')">
+                <a href="javascript:void(0);">
+                    <img src="iconos/Ai2sql.jpg" width="80" height="50"/>
+                    <h3>Sq</h3>
+                    <p>AI2sql</p>
+                </a>
+            </div>
+            
+            <div class="element base-datos" onclick="showModal('Deepnote', 'Notebook para datos con IA integrada. Es s una aplicación web compatible con Jupyter Notebooks que provee de un entorno de trabajo interactivo para ciencia de datos a nivel de proyectos. En él podrás escribir y ejecutar código de una forma sencilla y colaborativa en tiempo real sin ninguna configuración extra.', 'https://deepnote.com/', 'base-datos')">
+                <a href="javascript:void(0);">
+                    <img src="iconos/deepnote.png" width="50" height="50"/>
+                    <h3>Dn</h3>
+                    <p>Deepnote</p>
+                </a>
+            </div>
+            
+            <div class="element base-datos" onclick="showModal('Oracle', 'Oracle AI es un conjunto de capacidades de IA tradicional y generativa que ayudan a los equipos de marketing, ventas y servicios a mejorar la eficiencia operativa y revolucionar la forma en que se conectan con sus clientes. Contiene un conjunto de servicios y aplicaciones de inteligencia artificial (IA) que ayudan a las empresas a mejorar su eficiencia y productividad. ', 'https://www.oracle.com/artificial-intelligence//', 'base-datos')">
+                <a href="javascript:void(0);">
+                    <img src="iconos/oracle.png" width="50" height="50"/>
+                    <h3>Or</h3>
+                    <p>Oracle</p>
+                </a>
+            </div>
+            
+            <!-- Seguridad Informática -->
+            <div class="element seguridad" onclick="showModal('Darktrace', 'Darktrace es una plataforma de AI que utiliza el aprendizaje automático para detectar y responder a amenazas cibernéticas en tiempo real. Se basa en una tecnología innovadora que imita el sistema inmunológico humano, lo que le permite identificar cualquier comportamiento anómalo en la red y tomar medidas para protegerla.  ', 'https://www.darktrace.com/', 'seguridad')">
+                <a href="javascript:void(0);">
+                    <img src="iconos/darktrace.png" width="50" height="50"/>
+                    <h3>Dt</h3>
+                    <p>Darktrace</p>
+                </a>
+            </div>
+            
+            <div class="element seguridad" onclick="showModal('CrowdStrike', 'Plataforma de protección de endpoints con IA para detectar y prevenir ataques. Ofrece soluciones de software para proteger contra ataques informáticos. Sus productos están diseñados para proteger puntos finales, como servidores y portátiles, y cargas de trabajo en la nube. ', 'https://www.crowdstrike.com/', 'seguridad')">
+                <a href="javascript:void(0);">
+                    <img src="iconos/crowdstrike.png" width="60" height="70"/>
+                    <h3>Cs</h3>
+                    <p>Crowd Strike</p>
+                </a>
+            </div>
+            
+            <div class="element seguridad" onclick="showModal('Cylance', 'Solución de seguridad que utiliza IA para prevenir malware y ataques. Se utiliza con el fin de detectar comportamientos anómalos o maliciosos en una red con el fin de eliminarlos. Para ello, se basa en el uso de inteligencia artificial, lo cual le permite aprender desde cero sobre el estado normal y seguro de la red.', 'https://www.blackberry.com/us/en/products/cylance-endpoint-security', 'seguridad')">
+                <a href="javascript:void(0);">
+                    <img src="iconos/cylance.webp" width="70" height="40"/>
+                    <h3>Cy</h3>
+                    <p>Cylance</p>
+                </a>
+            </div>
+            
+            <div class="element seguridad" onclick="showModal('Anomali', 'Anomali es una revolucionaria plataforma de operaciones de seguridad basada en inteligencia artificial que es la primera y única solución que reúne las operaciones de seguridad y las capacidades de defensa en una solución de big data patentada y nativa de la nube.', 'https://www.anomali.com/', 'seguridad')">
+                <a href="javascript:void(0);">
+                    <img src="iconos/anomali.jpeg" width="50" height="50"/>
+                    <h3>An</h3>
+                    <p>Anomali</p>
+                </a>
+            </div>
+            
+            <!-- Redes -->
+            <div class="element redes" onclick="showModal('Cisco AI Network Analytics', 'Solución que utiliza IA para analizar patrones de tráfico y optimizar redes. Protege aplicaciones y modelos de IA frente a amenazas emergentes, con capacidades avanzadas de validación y seguridad en tiempo real, integradas en Cisco Security Cloud.', 'https://www.cisco.com/c/en/us/solutions/enterprise-networks/ai-networking.html', 'redes')">
+                <a href="javascript:void(0);">
+                    <img src="iconos/ciscoai.jpg" width="50" height="50"/>
+                    <h3>Ci</h3>
+                    <p>Cisco AI</p>
+                </a>
+            </div>            
+            <div class="element redes" onclick="showModal('Mist AI', 'Plataforma de redes inalámbricas con IA. Monitoriza el tráfico a nivel granular en todos los endpoints por cable e inalámbricos, además de utilizar microservicios ágiles y análisis anonimizados para optimizar la red de una manera dinámica..', 'https://www.juniper.net/us/en/products/mist-ai.html', 'redes')">
+                <a href="javascript:void(0);">
+                    <img src="iconos/mistai.png" width="70" height="50"/>
+                    <h3>Mi</h3>
+                    <p>Mist AI</p>
+                </a>
+            </div>
+            
+            <div class="element redes" onclick="showModal('Aruba Central', 'Plataforma de gestión de redes basada en la nube. Es una plataforma de gestión de redes que utiliza inteligencia artificial para administrar redes inalámbricas, cableadas, WAN e IoT. Detecta y soluciona problemas de red antes de que los usuarios lo noten. Optimiza las operaciones de redes de cable, inalámbricas y WAN.', 'https://www.arubanetworks.com/products/network-management-operations/central/', 'redes')">
+                <a href="javascript:void(0);">
+                    <img src="iconos/aruba.png" width="50" height="50"/>
+                    <h3>Ac</h3>
+                    <p>Aruba Central</p>
+                </a>
+            </div>
+            
+            <div class="element redes" onclick="showModal('NetBrain', 'Automatización y análisis de redes con IA para solucionar problemas. Permite a los arquitectos, operadores e ingenieros de redes aprovechar el poder unificado de la IA y la automatización, transformando procesos operativos complejos en flujos de trabajo eficientes.', 'https://www.netbraintech.com/', 'redes')">
+                <a href="javascript:void(0);">
+                    <img src="iconos/netbrain.png" width="70" height="50"/>
+                    <h3>Nb</h3>
+                    <p>NetBrain</p>
+                </a>
+            </div>
+            
+            <!-- Diseño Gráfico -->
+            <div class="element diseno-grafico" onclick="showModal('DALL-E', 'Sistema de IA que genera imágenes a partir de descripciones textuales. Es un sistema de inteligencia artificial creado por OpenAI, los mismos creadores de ChatGPT. En este caso, se trata de una IA que genera imágenes a partir de texto, de forma que solo le tienes que describir lo que quieres que dibuje, y generará la imagen de la nada.', 'https://openai.com/dall-e-3', 'diseno-grafico')">
+                <a href="javascript:void(0);">
+                    <img src="iconos/dalle.png" width="70" height="40"/>
+                    <h3>Da</h3>
+                    <p>DALL-E</p>
+                </a>
+            </div>
+            
+            <div class="element diseno-grafico" onclick="showModal('Midjourney', 'MidJourney es una herramienta de IA que sirve para la creación de imágenes a partir de texto a se le conoce como “text to image”. Su propósito principal es permitirle a marketers, artistas, diseñadores, creadores de contenido y usuarios en general que transformen descripciones escritas en representaciones visuales detalladas y de alta calidad.', 'https://www.midjourney.com/', 'diseno-grafico')">
+                <a href="javascript:void(0);">
+                    <img src="iconos/midjouney.jpg" width="70" height="40"/>
+                    <h3>Mj</h3>
+                    <p>Midjourney</p>
+                </a>
+            </div>
+            
+            <div class="element diseno-grafico" onclick="showModal('Canva', 'Es una herramienta de diseño gráfico en línea que permite crear, compartir e imprimir diseños profesionales. Es una plataforma intuitiva que se puede usar para diseñar contenido web, material impreso, presentaciones, videos, entre otros. ', 'https://www.canva.com/', 'diseno-grafico')">
+                <a href="javascript:void(0);">
+                    <img src="iconos/canva.png" width="80" height="50"/>
+                    <h3>Cv</h3>
+                    <p>Canva</p>
+                </a>
+            </div>
+            
+            <div class="element diseno-grafico" onclick="showModal('Photoshop Generative Fill', 'Photoshop AI es un software desarrollado por Adobe que utiliza el modelo de generador de imágenes Firefly. Con Photoshop AI, puedes producir imágenes nuevas y únicas, editar tus imágenes existentes, cambiar el fondo de tus fotos y modificar partes específicas de tus imágenes. Aunque Photoshop AI puede parecer complicado en términos de interfaz de usuario si lo utilizas por primera vez, es una herramienta a la que te acostumbrarás y descubrirás sus atajos a medida que la utilices.', 'https://www.adobe.com/products/photoshop/generative-fill.html', 'diseno-grafico')">
+                <a href="javascript:void(0);">
+                    <img src="iconos/adobe.jpg" width="50" height="70"/>
+                    <h3>Ps</h3>
+                    <p>Photoshop GF</p>
+                </a>
+            </div>
+            
+            <!-- Desarrollo Web -->
+            <div class="element desarrollo-web" onclick="showModal('Wix ADI', 'Wix ADI, o Inteligencia de Diseño Artificial, acelera y simplifica el proceso de construcción de su sitio web específico para las necesidades de su empresa. En lugar de utilizar el Wix editor, que es una herramienta bastante simple en sí misma, accede a los conocimientos de una solución de inteligencia artificial para construir su sitio.', 'https://www.wix.com/adi', 'desarrollo-web')">
+                <a href="javascript:void(0);">
+                    <img src="iconos/wix.png" width="50" height="50"/>
+                    <h3>Wx</h3>
+                    <p>Wix ADI</p>
+                </a>
+            </div>
+            
+            <div class="element desarrollo-web" onclick="showModal('Builder.io', 'Es una plataforma headless de creación de contenido visual que permite a equipos de marketing, diseño y desarrollo colaborar en la creación de experiencias digitales sin las limitaciones tradicionales del desarrollo frontend. Mediante su editor visual y capacidades de IA, Builder.io permite crear y modificar interfaces complejas sin necesidad de código, mientras mantiene la libertad técnica para los desarrolladores.', 'https://www.builder.io/', 'desarrollo-web')">
+                <a href="javascript:void(0);">
+                    <img src="iconos/builder.png" width="50" height="50"/>
+                    <h3>Bu</h3>
+                    <p>Builder.io</p>
+                </a>
+            </div>
+            
+            <div class="element desarrollo-web" onclick="showModal('10Web', 'Es una plataforma de construcción y hospedaje de páginas web basada en la nube. Proporciona una solución integral para el diseño, administración y alojamiento de sitios web. Sus funciones incluyen un constructor de sitios web fácil de usar con la función de arrastrar y soltar, plantillas ya diseñadas, respaldo y restauración del sitio web, asistencia al cliente las 24 horas del día, los 7 días de la semana y actualizaciones automáticas.', 'https://10web.io/', 'desarrollo-web')">
+                <a href="javascript:void(0);">
+                    <img src="iconos/10web.png" width="70" height="40"/>
+                    <h3>10W</h3>
+                    <p>10Web</p>
+                </a>
+            </div>
+            
+            <div class="element desarrollo-web" onclick="showModal('Hostinger AI Website Builder', 'Es una herramienta innovadora diseñada para facilitar la creación de sitios web de manera intuitiva y eficiente. Aprovechando la inteligencia artificial, permite a los usuarios sin conocimientos técnicos en programación o diseño desarrollar y personalizar sitios web profesionales.', 'https://www.hostinger.com/ai-website-builder', 'desarrollo-web')">
+                <a href="javascript:void(0);">
+                    <img src="iconos/hostinger.png" width="50" height="50"/>
+                    <h3>Ho</h3>
+                    <p>Hostinger AI</p>
+                </a>
+            </div>
+            
+            <!-- Escritura -->
+            <div class="element escritura" onclick="showModal('ChatGPT', 'Es un sistema de chat basado en el modelo de lenguaje por Inteligencia Artificial GPT-3.5, desarrollado por la empresa OpenAI. Es un modelo con más de 175 millones de parámetros, y entrenado con grandes cantidades de texto para realizar tareas relacionadas con el lenguaje, desde la traducción hasta la generación de texto.', 'https://chat.openai.com/', 'escritura')">
+                <a href="javascript:void(0);">
+                    <img src="iconos/chatgpt.webp" width="50" height="50"/>
+                    <h3>Cg</h3>
+                    <p>ChatGPT</p>
+                </a>
+            </div>
+            
+            <div class="element escritura" onclick="showModal('Claude', 'Es un modelo de inteligencia artificial (IA) que ayuda con la escritura, la investigación, la programación y más. Fue desarrollado por Anthropic, una empresa estadounidense que se enfoca en crear tecnologías de IA seguras y centradas en el usuario.', 'https://claude.ai/', 'escritura')">
+                <a href="javascript:void(0);">
+                    <img src="iconos/claude.png" width="50" height="50"/>
+                    <h3>Cl</h3>
+                    <p>Claude</p>
+                </a>
+            </div>
+            
+            <div class="element escritura" onclick="showModal('Jasper', 'Es una herramienta de software que emplea la inteligencia artificial. La particularidad de esta herramienta es que con ella el usuario puede crear contenido de forma automática. Gracias a su procesamiento de lenguaje natural y el uso de AI, Jasper es capaz de crear el contenido por ti y ahorrarte una suma de tiempo considerable. Se pronuncia a ser ideal para fabricar distintos productos como: publicaciones de redes sociales, blogs, anuncios, eBooks, redacciones de landing page. Inclusive, puede redactar por sí mismo historias de ficción y novelas.', 'https://www.jasper.ai/', 'escritura')">
+                <a href="javascript:void(0);">
+                    <img src="iconos/jasper.png" width="50" height="50"/>
+                    <h3>Ja</h3>
+                    <p>Jasper</p>
+                </a>
+            </div>
+            
+            <div class="element escritura" onclick="showModal('Grammarly', 'Grammarly es más que una simple aplicación de corrección gramatical y ortográfica; es una herramienta que ofrece una variedad de soluciones a medida para mejorar tu escritura. Desde errores gramaticales básicos hasta estilos de escritura sofisticados, Grammarly te ayuda a manejarlo todo.', 'https://www.grammarly.com/', 'escritura')">
+                <a href="javascript:void(0);">
+                    <img src="iconos/grammarly.png" width="50" height="50"/>
+                    <h3>Gr</h3>
+                    <p>Grammarly</p>
+                </a>
+            </div>
+            
+            <!-- Análisis de Datos -->
+            <div class="element analisis-datos" onclick="showModal('DataRobot', 'Plataforma de IA que automatiza el proceso de construcción y despliegue de modelos. Es una plataforma de inteligencia artificial que ayuda a las empresas a crear y usar modelos predictivos. Esto les permite tomar decisiones más precisas y basadas en datos.', 'https://www.datarobot.com/', 'analisis-datos')">
+                <a href="javascript:void(0);">
+                    <img src="iconos/datarobot.webp" width="50" height="50"/>
+                    <h3>Dr</h3>
+                    <p>DataRobot</p>
+                </a>
+            </div>
+            
+            <div class="element analisis-datos" onclick="showModal('Tableau', 'Software de visualización de datos con capacidades de IA para análisis. Usa inteligencia artificial para ayudar a los usuarios a analizar datos, descubrir patrones, y tomar decisiones. Tableau AI está diseñada para ser transparente y confiable.', 'https://www.tableau.com/', 'analisis-datos')">
+                <a href="javascript:void(0);">
+                    <img src="iconos/tableau.png" width="50" height="50"/>
+                    <h3>Ta</h3>
+                    <p>Tableau</p>
+                </a>
+            </div>
+            
+            <div class="element analisis-datos" onclick="showModal('Dataiku', 'Es una plataforma de Data Science unificada, de código abierto y basada en la nube. Ofrece funciones para la preparación de datos, el análisis y la creación de modelos de Machine Learning. Descubre todo lo que tienes que saber sobre esta herramienta esencial para la Data Science y la Inteligencia Artificial.El objetivo de la Data Science es transformar los datos en información útil para la toma de decisiones estratégicas. Sin embargo, hay que preparar, formatear y limpiar los datos en bruto antes de poder analizarlos.', 'https://www.dataiku.com/', 'analisis-datos')">
+                <a href="javascript:void(0);">
+                    <img src="iconos/dataiku.webp" width="50" height="50"/>
+                    <h3>Dk</h3>
+                    <p>Dataiku</p>
+                </a>
+            </div>
+            
+            <div class="element analisis-datos" onclick="showModal('Alteryx', 'Alteryx es una plataforma de análisis y visualización de datos que ofrece una amplia gama de herramientas para ayudar a las empresas a dar sentido a sus datos. Permite a los usuarios limpiar, transformar y analizar fácilmente grandes conjuntos de datos de distintas fuentes sin necesidad de codificación ni conocimientos de programación.', 'https://www.alteryx.com/', 'analisis-datos')">
+                <a href="javascript:void(0);">
+                    <img src="iconos/alteryx.png" width="50" height="50"/>
+                    <h3>Al</h3>
+                    <p>Alteryx</p>
+                </a>
+            </div>
+            
+            <!-- Productividad -->
+            <div class="element productividad" onclick="showModal('Notion AI', 'Es una potente herramienta que se basa en el Procesamiento del Lenguaje Natural y el Aprendizaje Automático para optimizar su proceso de escritura y ayudarle a ahorrar tiempo siempre que se sienta atascado e incapaz de producir contenidos interesantes y precisos. Permite resumir, generar y transformar contenido.', 'https://www.notion.so/product/ai', 'productividad')">
+                <a href="javascript:void(0);">
+                    <img src="iconos/notion.png" width="50" height="50"/>
+                    <h3>No</h3>
+                    <p>Notion AI</p>
+                </a>
+            </div>
+            
+            <div class="element productividad" onclick="showModal('Microsoft Copilot', 'Es un sistema de inteligencia artificial creado por Microsoft. Es lo que se llama un sistema conversacional, lo que quiere decir que la manera de controlarlo e interactuar con esta IA es a través de un chat. Copilot funciona utilizando el modelo de lenguaje de inteligencia artificial GPT, el mismo que utiliza ChatGPT. De hecho, su principal característica es que utiliza GPT-4, la misma versión que usa ChatGPT Plus, por lo que es una de las mejores alternativas para usar GPT-4 gratis.', 'https://copilot.microsoft.com/', 'productividad')">
+                <a href="javascript:void(0);">
+                    <img src="iconos/copilot.jpg" width="80" height="50"/>
+                    <h3>Mc</h3>
+                    <p>Microsoft Copilot</p>
+                </a>
+            </div>
+            
+            <div class="element productividad" onclick="showModal('Otter.ai', 'Otter.ai es una aplicación de transcripción automática de voz a texto. Utiliza tecnología de procesamiento del lenguaje natural para transcribir grabaciones de audio o video en texto escrito.Conjuntamente, también proporciona herramientas para buscar, compartir y editar las transcripciones. Otter.ai es utilizado por estudiantes, profesionales y periodistas para transcribir entrevistas, conferencias y otras grabaciones de audio.', 'https://otter.ai/', 'productividad')">
+                <a href="javascript:void(0);">
+                    <img src="iconos/otter.png" width="50" height="50"/>
+                    <h3>Ot</h3>
+                    <p>Otter.ai</p>
+                </a>
+            </div>
+            
+            <div class="element productividad" onclick="showModal('Zapier AI', 'Automatiza tareas y flujos de trabajo utilizando instrucciones en lenguaje natural. Es una herramienta de automatización impulsada por inteligencia artificial que permite conectar aplicaciones y automatizar flujos de trabajo sin necesidad de conocimientos técnicos avanzados.', 'https://zapier.com/ai', 'productividad')">
+                <a href="javascript:void(0);">
+                    <img src="iconos/zapier.png" width="50" height="50"/>
+                    <h3>Za</h3>
+                    <p>Zapier AI</p>
+                </a>
+            </div>
+            
+            <!-- Audio y Video -->
+            <div class="element audio-video" onclick="showModal('Runway', 'Es una tecnología innovadora que está revolucionando la forma de utilizar la Inteligencia Artificial en el arte, la imagen y el vídeo». Esta plataforma de vanguardia ofrece una amplia gama de herramientas y servicios de IA, que permiten a las organizaciones liberar todo el potencial del aprendizaje automático y la visión por ordenador en sus flujos de trabajo. Ofrece más de 30 herramientas de inteligencia artificial para generar videos, imágenes, texto y más con sistemas de IA multimodales.', 'https://runwayml.com/', 'audio-video')">
+                <a href="javascript:void(0);">
+                    <img src="iconos/runway.png" width="50" height="50"/>
+                    <h3>Rw</h3>
+                    <p>Runway</p>
+                </a>
+            </div>
+            
+            <div class="element audio-video" onclick="showModal('ElevenLabs', 'Plataforma de síntesis de voz con IA de alta calidad. Genera voces realistas a partir de texto o audio. Se puede usar para crear contenido de audio para videos, podcasts, audiobooks, videojuegos, y más. También se puede usar para crear agentes virtuales para el servicio al cliente.', 'https://elevenlabs.io/', 'audio-video')">
+                <a href="javascript:void(0);">
+                    <img src="iconos/eleven.png" width="50" height="50"/>
+                    <h3>El</h3>
+                    <p>ElevenLabs</p>
+                </a>
+            </div>
+            
+            <div class="element audio-video" onclick="showModal('Descript', 'Editor de audio y video basado en texto con capacidades de IA. Es editor de video integral, con todas las funciones y tecnología de inteligencia artificial que ya sabes cómo usar. No es necesario aprender a usar una nueva herramienta.', 'https://www.descript.com/', 'audio-video')">
+                <a href="javascript:void(0);">
+                    <img src="iconos/descript.png" width="50" height="50"/>
+                    <h3>De</h3>
+                    <p>Descript</p>
+                </a>
+            </div>
+            
+            <div class="element audio-video" onclick="showModal('Suno', 'Generador de música con IA a partir de instrucciones textuales. Es capaz de crear canciones de la nada. Lo único que tienes que hacer es escribir un prompt o comando describiendo el tipo de canción que quieres y poniéndole un título, y la IA generará una canción a partir de esa descripción.', 'https://www.suno.ai/', 'audio-video')">
+                <a href="javascript:void(0);">
+                    <img src="iconos/suno.png" width="50" height="50"/>
+                    <h3>Su</h3>
+                    <p>Suno</p>
+                </a>
+            </div>
+            
+            <!-- Educación -->
+            <div class="element educacion" onclick="showModal('Duolingo Max', 'Duolingo Max es un nuevo nivel de suscripción superior a Súper Duolingo que da a los usuarios acceso a dos nuevas funcionalidades y ejercicios: Explica mi respuesta y Juego de roles. Ambos están potenciados por la más reciente y poderosa tecnología de IA generativa. Hemos estado trabajando estrechamente con OpenAI durante meses para pulir la tecnología y prepararla para nuestros usuarios.', 'https://blog.duolingo.com/duolingo-max/', 'educacion')">
+                <a href="javascript:void(0);">
+                    <img src="iconos/duolingo.png" width="50" height="50"/>
+                    <h3>Du</h3>
+                    <p>Duolingo Max</p>
+                </a>
+            </div>
+            
+            <div class="element educacion" onclick="showModal('Quizlet Q-Chat', 'Quizlet es una plataforma educativa en línea que utiliza inteligencia artificial (IA) para ayudar a los estudiantes a mejorar sus habilidades de memorización y comprensión de conceptos en una amplia variedad de materias. Fundada en 2005 por Andrew Sutherland, la plataforma se ha convertido en una herramienta esencial para estudiantes y profesores de todo el mundo, permitiendo un aprendizaje dinámico, interactivo y personalizado.', 'https://quizlet.com/features/q-chat', 'educacion')">
+                <a href="javascript:void(0);">
+                    <img src="iconos/quizlet.png" width="50" height="50"/>
+                    <h3>Qz</h3>
+                    <p>Quizlet Q-Chat</p>
+                </a>
+            </div>
+            
+            <div class="element educacion" onclick="showModal('Khan Academy Khanmigo', 'Khanmigo es un asistente de enseñanza impulsado por IA de Khan Academy, una organización educativa sin fines de lucro de confianza. Está diseñado por maestros para facilitar tu tarea. Algo que llevaría horas puede hacerse rápidamente con Khanmigo: diferenciación, planes de clases, preguntas de evaluación, agrupaciones de estudiantes, actividades atractivas, preguntas para terminar la clase, rúbricas y más. El tiempo que necesites para preparar tus clases será menor y mejor. Khanmigo te ayuda a vencer el bloqueo del escritor, ya que redacta borradores de correos electrónicos para padres de familia en múltiples idiomas y boletines de noticias sobre las clases.', 'https://www.khanacademy.org/khan-labs', 'educacion')">
+                <a href="javascript:void(0);">
+                    <img src="iconos/khanmigo.png" width="50" height="50"/>
+                    <h3>Kh</h3>
+                    <p>Khanmigo</p>
+                </a>
+            </div>
+            
+            <div class="element educacion" onclick="showModal('Photomath', 'Photomath es la aplicación número uno para el aprendizaje de matemáticas, ¡y eso es por una buena razón! Podemos reconocer problemas matemáticos que van desde la aritmética hasta el cálculo al instante utilizando la cámara de su dispositivo móvil. Una vez que analices tu problema, te mostraremos cómo resolverlo paso a paso. Photomath Plus, nuestra versión premium de la aplicación, contiene aún más funciones útiles, como nuestros tutoriales animados exclusivos (¡perfectos para estudiantes visuales!), sugerencias contextuales útiles y explicaciones de conceptos.', 'https://photomath.com/', 'educacion')">
+                <a href="javascript:void(0);">
+                    <img src="iconos/photomath.png" width="50" height="50"/>
+                    <h3>Pm</h3>
+                    <p>Photomath</p>
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <h2 id="app-title"></h2>
+            <p id="app-description"></p>
+            <a id="app-link" href="#" target="_blank">Visitar sitio web</a>
+        </div>
+    </div>
+    
+    <script>
+        function showModal(title, description, link, category) {
+            document.getElementById('app-title').textContent = title;
+            document.getElementById('app-description').textContent = description;
+            
+            const appLink = document.getElementById('app-link');
+            appLink.href = link;
+            appLink.textContent = 'Visitar sitio web';
+            
+            document.getElementById('modal').style.display = 'flex';
+        }
+        
+        function closeModal() {
+            document.getElementById('modal').style.display = 'none';
+        }
+        
+        // Cerrar modal si se hace clic fuera del contenido
+        window.onclick = function(event) {
+            const modal = document.getElementById('modal');
+            if (event.target == modal) {
+                closeModal();
+            }
+        }
+    </script>
+</body>
+</html>
