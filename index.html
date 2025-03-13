@@ -4,196 +4,273 @@
     <meta charset="UTF-8">
     <title>Tabla Periódica de IA</title>
     <style>
-        body {
-        
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-image: url(Iconos/test9.jpg);
-            margin: 0;
-            padding: 20px;
-        }
-        
-        h1 {
-            text-align: center;
-            color: #000000;
-            margin-bottom: 30px;
-        }
-        h1elaborado {
-          
-          top: 0;
-          left: 0;
-          width: 100%;
-           height: 13%;
-            text-align: center;
-            color: #000000;
-            margin-bottom: 30px;
-        }
-              
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-        
-        .periodic-table {
-            display: grid;
-            grid-template-columns: repeat(12, 1fr);
-            gap: 10px;
-            margin-bottom: 30px;
-        }
-        
-        .watermark {
-          position: fixed;
-          top: 0;
-          left: 0;
-          width: 100%;
-           height: 13%;
-         background-image: url(Iconos/logoct.png);
-         background-repeat: no-repeat;
-          background-position: right;
-          background-size: 20%;
-          opacity: 0.20;
-          pointer-events: none;
-          z-index: -1;
-        }
+       body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-image: url(Iconos/test9.jpg);
+    background-size: cover; /* Asegura que la imagen de fondo cubra toda la pantalla */
+    background-position: center;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* Elimina el scroll horizontal */
+    height: 100vh; /* Asegura que el body ocupe toda la altura de la ventana */
+}
 
+/* Estilo del encabezado */
+h1 {
+    text-align: center;
+    color: #000000;
+    margin-bottom: 30px;
+}
 
-        
-        .element {
-            border-radius: 5px;
-            padding: 15px;
-            color: white;
-            text-align: center;
-            transition: transform 0.3s, box-shadow 0.3s;
-            min-height: 100px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            cursor: pointer;
-            position: relative;
-        }
-        
-        .element:hover {
-            transform: scale(1.50);
-            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
-            z-index: 10;
-        }
-        
-        .element h3 {
-            margin: 0 0 5px 0;
-            font-size: 20px;
-            font-weight: bold;
-        }
-        
-        .element p {
-            margin: 0;
-            font-size: 15px;
-            opacity: 0.9;
-        }
-        
-        .element a {
-            color: white;
-            text-decoration: none;
-            display: block;
-            height: 100%;
-            width: 100%;
-            position: absolute;
-            top: 0;
-            left: 0;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            padding: 15px;
-            box-sizing: border-box;
-        }
-        
-        .programacion { background-color: #ff6c22; }
-        .diseno-web { background-color: #2196F3; }
-        .base-datos { background-color: #4CAF50; }
-        .seguridad { background-color: #F44336; }
-        .redes { background-color: #9C27B0; }
-        .diseno-grafico { background-color: #00BCD4; }
-        .desarrollo-web { background-color: #673AB7; }
-        .escritura { background-color: #3F51B5; }
-        .analisis-datos { background-color: #009688; }
-        .productividad { background-color: #FFC107; }
-        .audio-video { background-color: #795548; }
-        .educacion { background-color: #8BC34A; }
-        
-        .legend {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 10px;
-            margin-bottom: 20px;
-        }
-        
-        .legend-item {
-            display: flex;
-            align-items: center;
-            margin: 5px;
-        }
-        
-        .color-box {
-            width: 20px;
-            height: 20px;
-            margin-right: 8px;
-            border-radius: 3px;
-        }
-        
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0,0,0,0.7);
-            z-index: 100;
-            justify-content: center;
-            align-items: center;
-        }
-        
-        .modal-content {
-            background-color: white;
-            padding: 30px;
-            border-radius: 10px;
-            max-width: 600px;
-            width: 80%;
-            position: relative;
-        }
-        
-        .close-btn {
-            position: absolute;
-            top: 10px;
-            right: 15px;
-            font-size: 24px;
-            cursor: pointer;
-            color: #333333;
-        }
-        
-        #app-title {
-            margin-top: 0;
-            color: #333;
-        }
-        
-        #app-description {
-            color: #666;
-            line-height: 1.6;
-        }
-        
-        #app-link {
-            display: inline-block;
-            margin-top: 15px;
-            padding: 10px 20px;
-            background-color: #4CAF50;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            transition: background-color 0.3s;
-        }
-        
-        #app-link:hover {
-            background-color: #388E3C;
-        }
+/* Estilo del encabezado elaborado */
+h1elaborado {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 13%;
+    text-align: center;
+    color: #000000;
+    margin-bottom: 30px;
+}
+
+/* Contenedor principal */
+.container {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+/* Estilo de la tabla periódica */
+.periodic-table {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr); /* 12 columnas por defecto */
+    gap: 10px;
+    margin-bottom: 30px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Marca de agua */
+.watermark {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 13%;
+    background-image: url(Iconos/logoct.png);
+    background-repeat: no-repeat;
+    background-position: right;
+    background-size: 20%;
+    opacity: 0.20;
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* Estilo de los elementos de la tabla */
+.element {
+    border-radius: 5px;
+    padding: 15px;
+    color: white;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+    min-height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    cursor: pointer;
+    position: relative;
+}
+
+.element:hover {
+    transform: scale(1.5);
+    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+    z-index: 10;
+}
+
+.element h3 {
+    margin: 0 0 5px 0;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.element p {
+    margin: 0;
+    font-size: 15px;
+    opacity: 0.9;
+}
+
+.element a {
+    color: white;
+    text-decoration: none;
+    display: block;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 15px;
+    box-sizing: border-box;
+}
+
+/* Estilos de cada categoría */
+.programacion { background-color: #ff6c22; }
+.diseno-web { background-color: #2196F3; }
+.base-datos { background-color: #4CAF50; }
+.seguridad { background-color: #F44336; }
+.redes { background-color: #9C27B0; }
+.diseno-grafico { background-color: #00BCD4; }
+.desarrollo-web { background-color: #673AB7; }
+.escritura { background-color: #3F51B5; }
+.analisis-datos { background-color: #009688; }
+.productividad { background-color: #FFC107; }
+.audio-video { background-color: #795548; }
+.educacion { background-color: #8BC34A; }
+
+/* Leyenda de colores */
+.legend {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    margin: 5px;
+}
+
+.color-box {
+    width: 20px;
+    height: 20px;
+    margin-right: 8px;
+    border-radius: 3px;
+}
+
+/* Estilo del modal */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.7);
+    z-index: 100;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    max-width: 600px;
+    width: 80%;
+    position: relative;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 24px;
+    cursor: pointer;
+    color: #333333;
+}
+
+/* Títulos y enlaces dentro del modal */
+#app-title {
+    margin-top: 0;
+    color: #333;
+}
+
+#app-description {
+    color: #666;
+    line-height: 1.6;
+}
+
+#app-link {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+#app-link:hover {
+    background-color: #388E3C;
+}
+
+/* Media Queries */
+
+/* Para pantallas más grandes */
+@media (max-width: 1024px) {
+    .periodic-table {
+        grid-template-columns: repeat(6, 1fr); /* Reduce el número de columnas */
+    }
+
+    .element {
+        padding: 10px; /* Ajusta el padding para pantallas más pequeñas */
+    }
+
+    h1 {
+        font-size: 24px; /* Ajusta el tamaño de la fuente para pantallas pequeñas */
+    }
+}
+
+/* Para dispositivos con pantallas más pequeñas (tabletas o teléfonos en modo paisaje) */
+@media (max-width: 768px) {
+    body {
+        padding: 10px; /* Reduce el padding en dispositivos pequeños */
+    }
+
+    .periodic-table {
+        grid-template-columns: repeat(4, 1fr); /* Reduce aún más el número de columnas */
+    }
+
+    .element {
+        padding: 8px;
+        min-height: 80px; /* Asegura que los elementos se ajusten mejor en pantallas pequeñas */
+    }
+
+    .watermark {
+        height: 10%; /* Ajusta el tamaño de la marca de agua */
+    }
+
+    h1 {
+        font-size: 20px; /* Ajusta el tamaño de la fuente para caber en pantallas pequeñas */
+    }
+}
+
+/* Para pantallas muy pequeñas (móviles en modo vertical) */
+@media (max-width: 480px) {
+    .periodic-table {
+        grid-template-columns: repeat(2, 1fr); /* Muestra solo 2 columnas */
+    }
+
+    .element {
+        padding: 5px;
+        min-height: 60px; /* Asegura que los elementos sean aún más pequeños */
+    }
+
+    h1 {
+        font-size: 18px; /* Reduce el tamaño de la fuente aún más */
+    }
+
+    .watermark {
+        display: none; /* Puede ocultarse para evitar que ocupe espacio */
+    }
+}
     </style>
 </head>
 <body>
